@@ -183,7 +183,6 @@ function XMLForm({ onTrigger }) {
       </div>
 
       <br />
-
       <button onClick={handleSave}> Save Current State </button>
 
       <br />

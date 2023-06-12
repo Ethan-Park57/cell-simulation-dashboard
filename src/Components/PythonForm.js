@@ -21,9 +21,9 @@ function PythonForm({areTriggered}) {
   }, [areTriggered, formValues]);
 
   // print formValues whenever it updates
-  useEffect(() => {
-    console.log("CHANGED FORM VALUE:", formValues);
-  }, [formValues]);
+  // useEffect(() => {
+  //   console.log("CHANGED FORM VALUE:", formValues);
+  // }, [formValues]);
   
   const [fileString, setFileString] = useState('');
 
@@ -54,7 +54,11 @@ function PythonForm({areTriggered}) {
       return line;
     }).join('\n');
 
-    console.log(updatedString)
+    const element = document.createElement("a");
+    const file = new Blob([updatedString], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "file.txt";
+    element.click();
     
     return updatedString;
   };
